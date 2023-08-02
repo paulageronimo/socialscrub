@@ -1,59 +1,65 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to SocialScrub! {% endblock %}</h1>
-    <p>cleanFriends will help you clean up your facebook friends list and insta followers, easily.</p>
-    <p>----------------------------</p>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-    Facebook Friends
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Facebook Friends</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <h1>Upload a JSON file</h1>
+    <h1 style="text-align: center; margin-top: 100px;">{% block title %} Welcome to SocialScrub! {% endblock %}</h1>
+    <p style="text-align: center; margin-bottom: 100px;">
+        SocialScrub will help you clean up your facebook friends list and instagram followers, easily.<br><br>
+        <b>Disclaimer:</b> We don't store your data. Our site uses HTTPS, which ensures the safety of the upload and temporary storage of your data.
+    </p>
 
-            <form method="POST" enctype="multipart/form-data">
-                <input type="file" name="fb-file" accept=".json" >
-                <input type="submit" value="Upload" class="btn btn-primary">
-            </form>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col"></div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                    Facebook Friends
+                </button>
+                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Facebook Friends</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h1>Upload a JSON file</h1>
+                
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="file" name="fb-file" accept=".json" >
+                                <input type="submit" value="Upload" class="btn btn-primary">
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Instagram Followers
+                </button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Upload both JSON files</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                
+                            <form method="POST" enctype="multipart/form-data">
+                                <h3>Following JSON</h3>
+                                <input type="file" name="following-file" accept=".json" >
+                                <br>
+                                <h3>Followers JSON</h3>
+                                <input type="file" name="followers-file" accept=".json" >
+                                <input type="submit" value="Upload" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
         </div>
-      </div>
     </div>
-  </div>
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Instagram Followers
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Upload both JSON files</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-            <form method="POST" enctype="multipart/form-data">
-                <h3>Following JSON</h3>
-                <input type="file" name="following-file" accept=".json" >
-                <br>
-                <h3>Followers JSON</h3>
-                <input type="file" name="followers-file" accept=".json" >
-                <input type="submit" value="Upload" class="btn btn-primary">
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
 {% endblock %}
