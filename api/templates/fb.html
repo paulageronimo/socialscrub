@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>{% block title %} Facebook {% endblock %}</h1>
-    <h3>Friend Names:</h3>
+    <h3>{{ count }}Friend Names:</h3>
     <ul>
         {% for name in friend_names %}
             <li>{{ name }}</li>

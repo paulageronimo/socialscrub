@@ -3,7 +3,7 @@ import json
 
 def get_friend_names(data):
     friend_names = [friend['name'] for friend in data['friends_v2']]
-    return friend_names
+    return friend_names, len(friend_names)
 
 import json
 
@@ -15,7 +15,7 @@ def find_unfollowers(following_data, followers_data):
     followers_set = set(followers_list)
 
     unfollowers = following_set - followers_set
-    return list(unfollowers)
+    return list(unfollowers), len(list(unfollowers))
 
 
 app = Flask(__name__)
@@ -27,13 +27,13 @@ def index():
             return redirect(request.url)
 
         if 'fb-file' in request.files:
-            friend_names = get_friend_names(json.load(request.files['fb-file']))
-            return render_template('fb.html',friend_names=friend_names)
+            friend_names, count = get_friend_names(json.load(request.files['fb-file']))
+            return render_template('fb.html',friend_names=friend_names, count=count)
         elif 'following-file' in request.files and 'followers-file' in request.files:
             following_data = json.load(request.files['following-file'])
             followers_data = json.load(request.files['followers-file'])
-            unfollowers = find_unfollowers(following_data, followers_data)
-            return render_template('ig.html',unfollowers=unfollowers)
+            unfollowers, count = find_unfollowers(following_data, followers_data)
+            return render_template('ig.html',unfollowers=unfollowers, count=count)
         else:
             return redirect(request.url)
 
