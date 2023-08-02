@@ -13,3 +13,4 @@ env.bak/
 venv.bak/ 
 
 api/data
+.DS_Store
