@@ -4,9 +4,56 @@
     <h1>{% block title %} Welcome to SocialScrub! {% endblock %}</h1>
     <p>cleanFriends will help you clean up your facebook friends list and insta followers, easily.</p>
     <p>----------------------------</p>
-    <h1>Upload a JSON file</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".json">
-        <input type="submit" value="Upload">
-    </form>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+    Facebook Friends
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Facebook Friends</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h1>Upload a JSON file</h1>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="fb-file" accept=".json" >
+                <input type="submit" value="Upload" class="btn btn-primary">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Instagram Followers
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Upload both JSON files</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" enctype="multipart/form-data">
+                <h3>Following JSON</h3>
+                <input type="file" name="following-file" accept=".json" >
+                <br>
+                <h3>Followers JSON</h3>
+                <input type="file" name="followers-file" accept=".json" >
+                <input type="submit" value="Upload" class="btn btn-primary">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
